@@ -6,7 +6,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.js$': 'ts-jest',
   },
-  moduleDirectories: ['node_modules', './'],
+  moduleDirectories: ['node_modules', __dirname],
   testEnvironmentOptions: {
     url: 'http://localhost:3000',
   },
