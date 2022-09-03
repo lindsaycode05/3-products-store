@@ -8,7 +8,11 @@ interface IProduct {
   qty: number;
 }
 
-export const generateAmount = (voucher: IProduct, tshirt: IProduct, mug: IProduct) => {
+export const generateAmount = (
+  voucher: IProduct,
+  tshirt: IProduct,
+  mug: IProduct
+) => {
   // storing these function's args in array for executing the computation & calculating final amount
   const totalItems = [voucher, tshirt, mug];
 
@@ -42,7 +46,7 @@ const voucher = STORE_DATA[0];
 const tshirt = STORE_DATA[1];
 const mug = STORE_DATA[2];
 
-console.log(generateAmount(voucher, tshirt, mug)); // should return 32.5 based on the json data at the moment
+console.log(generateAmount(voucher, tshirt, mug)); // should return 32.5 based on the json data at the moment (more specifically the "qty" (quantity) attribute)
 
 // other computation examples to try (please paste this data in the data.json file):
 
