@@ -43,8 +43,12 @@ export class Checkout {
     // Reduce function reduce the values of array to a single values, its used mostly for calculating total amount
     const total = this.product.reduce((total: number, product: IProduct) => {
       if (product.code === 'VOUCHER') {
+        // The spec says “should return the total amount to be paid”, so in case with the 2-1 promotion for the vouchers, we can’t prompt anything like some text to the assumed user (”You got 1 voucher for free!”), because the purpose of the app is just to return the sum to be paid. That’s why I made it like if we buy 3, 6, 9 etc. vouchers we simply DON'T include that 3rd voucher in the price. I tried to follow the spec strictly as it was given to me. So we just simulate that promotion by NOT including in the price each 3rd voucher (which is basically the gift offered for free according to the promotion)
+
         const multiplier = Math.floor(product.qty / 3);
         if (product.qty >= 2) {
+          // if the quantity of the vouchers scanned is divisible by 3, we don't include the 3rd voucher in the price
+          // e.g. if we scan 3 vouchers, the returned value (of "multiplier") will be 1, if we scan 6 vouchers, the returned value will be 2 , and the returned value is multiplied below for substracting from quantity
           return total + product.price * (product.qty - 1 * multiplier);
         }
         return total + product.price * product.qty;
@@ -64,6 +68,11 @@ export class Checkout {
 }
 
 let co = new Checkout(priceData);
+co.scan({ code: 'VOUCHER' });
+co.scan({ code: 'VOUCHER' });
+co.scan({ code: 'VOUCHER' });
+co.scan({ code: 'VOUCHER' });
+co.scan({ code: 'VOUCHER' });
 co.scan({ code: 'VOUCHER' });
 co.scan({ code: 'TSHIRT' });
 co.scan({ code: 'MUG' });
