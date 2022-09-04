@@ -15,13 +15,11 @@ export interface IProduct extends IObjectKeys {
 
 export class Checkout {
   product: IProduct;
-  // Constructor executes whenever a class function is called however its inner functions are not executed
   constructor(product: IProduct) {
     this.product = product;
   }
 
   scan = (product: Partial<IProduct>) => {
-    // Switch statement is passed a parameter that is compared to in each case inside it e.g. product
     switch (product.code) {
       case 'VOUCHER':
         this.product[0].qty++;
@@ -40,7 +38,6 @@ export class Checkout {
 
   total = () => {
     let initialValue = 0;
-    // Reduce function reduce the values of array to a single values, its used mostly for calculating total amount
     const total = this.product.reduce((total: number, product: IProduct) => {
       if (product.code === 'VOUCHER') {
         // The spec says “should return the total amount to be paid”, so in case with the 2-1 promotion for the vouchers, we can’t prompt anything like some text to the assumed user (”You got 1 voucher for free!”), because the purpose of the app is just to return the sum to be paid. That’s why I made it like if we buy 3, 6, 9 etc. vouchers we simply DON'T include that 3rd voucher in the price. I tried to follow the spec strictly as it was given to me. So we just simulate that promotion by NOT including in the price each 3rd voucher (which is basically the gift offered for free according to the promotion)
@@ -60,7 +57,6 @@ export class Checkout {
         return total + product.price * product.qty;
       }
 
-      // initialValue is the initial value of the value to be returned from the reduce function e.g. in this case total
     }, initialValue);
     return `${total}€`;
   };
