@@ -6,7 +6,7 @@ interface IObjectKeys {
   [key: string]: any;
 }
 
-interface IProduct extends IObjectKeys {
+export interface IProduct extends IObjectKeys {
   code: string;
   name: string;
   price: number;
