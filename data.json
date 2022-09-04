@@ -3,18 +3,18 @@
     "code": "VOUCHER",
     "name": "Voucher",
     "price": 5,
-    "qty": 1
+    "qty": 0
   },
   {
     "code": "TSHIRT",
     "name": "T-Shirt",
     "price": 20,
-    "qty": 1
+    "qty": 0
   },
   {
     "code": "MUG",
     "name": "Coffee mug",
     "price": 7.5,
-    "qty": 1
+    "qty": 0
   }
 ]

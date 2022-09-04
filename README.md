@@ -1,9 +1,9 @@
-## 💻 Run the function
+## 💻 Run the app
 
 1. Clone the repo
 2. Run `yarn` or `npm i` to install the required dependencies
 3. Run `yarn start` or `npm start` to execute the function and view the result in the console
-4. Edit the `data.json` file as indicated in the provided comments to instantiate different use-cases of the function
+4. Scan any amount of products to get the total cost of them
 
 ## 📌 Details
 
@@ -16,7 +16,6 @@
 
 - The app contains unit testing with Jest library
 - To run the test, run `yarn test` or `npm test`
-- If you edit the `data.json` file, be sure just to change the value that should be expected as the output in `store.test.ts`
 
 ## ✨ Built With
 
