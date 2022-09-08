@@ -1,3 +1,5 @@
+<h1 id="top" align="center">"Checkout" and "scanning" function that calculates the total sum to be paid for the checked out products</h1>
+
 ## 💻 Run the app
 
 1. Clone the repo
